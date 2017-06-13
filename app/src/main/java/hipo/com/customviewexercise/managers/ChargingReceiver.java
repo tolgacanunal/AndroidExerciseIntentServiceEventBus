@@ -7,7 +7,7 @@ import android.text.format.Time;
 
 import org.greenrobot.eventbus.EventBus;
 
-import hipo.com.customviewexercise.ChargingEvent;
+import hipo.com.customviewexercise.events.ChargingEvent;
 
 /**
  * Created by Tolga Can "tesleax" Ünal on 13/06/17

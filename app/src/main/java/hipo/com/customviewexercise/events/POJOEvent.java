@@ -1,17 +1,17 @@
-package hipo.com.customviewexercise;
+package hipo.com.customviewexercise.events;
 
 /**
  * Created by Tolga Can "tesleax" Ünal on 13/06/17
  */
 
-public class POJO {
+public class POJOEvent {
     private final String message;
 
-    public POJO(String message) {
+    public POJOEvent(String message) {
         this.message = message;
     }
 
-    String getMessage() {
+    public String getMessage() {
         return message;
     }
 }
