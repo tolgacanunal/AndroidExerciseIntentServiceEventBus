@@ -37,9 +37,10 @@ import io.objectbox.Box;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "objectBoxTest";
+    private static final int READ_CONTACTS_REQUEST_CODE = 225;
+
     private MainActivityBroadcastReceiver broadcastReceiver;
     private EventBus myEventBus = EventBus.getDefault();
-    private static final int READ_CONTACTS_REQUEST_CODE = 225;
     private FirebaseJobDispatcher dispatcher;
     private Box<Object> objectBox;
 
