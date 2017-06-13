@@ -19,6 +19,8 @@ android {
     }
 }
 
+apply plugin: 'io.objectbox'
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
@@ -31,6 +33,5 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.6.0'
     compile 'org.greenrobot:eventbus:3.0.0'
     compile 'com.firebase:firebase-jobdispatcher-with-gcm-dep:0.6.0'
-
-
+    implementation 'io.objectbox:objectbox-android:0.9.12'
 }

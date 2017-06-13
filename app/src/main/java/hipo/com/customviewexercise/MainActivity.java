@@ -12,6 +12,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.firebase.jobdispatcher.Constraint;
@@ -26,16 +27,21 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
+import java.lang.*;
+
 import hipo.com.customviewexercise.events.ChargingEvent;
 import hipo.com.customviewexercise.events.POJOEvent;
 import hipo.com.customviewexercise.service.IntentServiceExample;
 import hipo.com.customviewexercise.service.MyJobService;
+import io.objectbox.Box;
 
 public class MainActivity extends AppCompatActivity {
+    private static final String TAG = "objectBoxTest";
     private MainActivityBroadcastReceiver broadcastReceiver;
     private EventBus myEventBus = EventBus.getDefault();
     private static final int READ_CONTACTS_REQUEST_CODE = 225;
     private FirebaseJobDispatcher dispatcher;
+    private Box<Object> objectBox;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,6 +95,14 @@ public class MainActivity extends AppCompatActivity {
         // both require
         Intent intent = new Intent(this, IntentServiceExample.class);
         startService(intent);
+
+        // object box
+        objectBox = ((App) getApplication()).getBoxStore().boxFor(Object.class);
+
+        Object object = new Object(0,"name");
+        objectBox.put(object);
+
+        Log.i(TAG, "onCreate: object name :" + objectBox.getAll());
     }
 
     @Override
