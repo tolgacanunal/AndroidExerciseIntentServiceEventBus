@@ -63,6 +63,7 @@ public class AnswerView extends LinearLayout {
                     letter = "D";
                     break;
             }
+            String NEW = "new String";
             String description = "Description of the selection " + letter;
             tvSelectionDescription.setText(description);
             letter += " )";
